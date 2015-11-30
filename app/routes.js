@@ -15,7 +15,7 @@ app.get('/api/todos', function(req, res) {
 
 			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
 			if (err)
-				res.send(err)
+				res.send(err);
 
 			res.json(todos); // return all todos in JSON format
 		});
@@ -33,7 +33,7 @@ app.post('/api/todos', function(req, res) {
 			// get and return all the todos after you create another
 			Todo.find(function(err, todos) {
 				if (err)
-					res.send(err)
+					res.send(err);
 				res.json(todos);
 			});
 		});
@@ -42,6 +42,7 @@ app.post('/api/todos', function(req, res) {
 //application
 app.get('*', function(req, res) {
 	res.sendFile(__dirname + '/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+	//	res.render('index', {title:'Todo App'});
 });
 
 };

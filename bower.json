@@ -1,0 +1,20 @@
+{
+  "name": "todoapp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/PrideGlobal/MSP_VMS",
+  "authors": [
+    "Manish Sangani <manish.sangani@prideglobal.com>"
+  ],
+  "description": "To do App for demo",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.8",
+    "bootstrap": "~3.3.6",
+    "angular-resource": "~1.4.8"
+  }
+}

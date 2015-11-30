@@ -40,7 +40,8 @@ require('./app/routes.js')(app);
 */
 
 //set server port
-app.listen(port);
-console.log('server is running on port: ' + port);
+//app.listen(port);
+app.listen(process.env.PORT, process.env.IP);
+console.log('server is running on port: ' + process.env.PORT);
 
 module.exports = app;
