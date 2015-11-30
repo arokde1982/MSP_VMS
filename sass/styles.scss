@@ -1,0 +1,16 @@
+$font-stack: "Lucida Grande", Helvetica, Arial, sans-serif;
+$primary-color: #00B7FF ;
+
+
+body {
+  padding: 50px;
+  font: 14px $font-stack;
+}
+
+a {
+  color: $primary-color;
+}
+
+h1 {
+	color: blue;
+}
