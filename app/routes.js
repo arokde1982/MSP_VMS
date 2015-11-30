@@ -42,7 +42,7 @@ app.post('/api/todos', function(req, res) {
 //application
 app.get('*', function(req, res) {
 	res.sendFile(__dirname + '/index.html'); // load the single view file (angular will handle the page changes on the front-end)
-	//	res.render('index', {title:'Todo App'});
+	//res.render('index', {title:'Todo App'});
 });
 
 };
