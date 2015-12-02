@@ -1,0 +1,1 @@
+var Todo=require("./models/todo");module.exports=function(o){o.get("/api/todos",function(o,n){Todo.find(function(o,t){o&&n.send(o),n.json(t)})}),o.post("/api/todos",function(o,n){Todo.create({text:o.body.text,done:!1},function(o,t){o&&n.send(o),Todo.find(function(o,t){o&&n.send(o),n.json(t)})})}),o.get("*",function(o,n){n.sendFile(__dirname+"/index.html")})};

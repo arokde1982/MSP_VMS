@@ -23,6 +23,7 @@ app.use(express.static(__dirname + '/public')); 		// set the static files locati
 app.use(morgan('dev'));
 //app.use(express.logger('dev')); 						// log every request to the console
 app.use(bodyParser()); 							// pull information from html in POST
+
 app.use(methodOverride()); 						// simulate DELETE and PUT
 
 
