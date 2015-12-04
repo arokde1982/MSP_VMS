@@ -11,3 +11,7 @@ services:
 
 script:
     - gulp process-scripts
+
+# npm install runs by default, but we need to specify global installs ourselves
+before_install:
+ - npm install -g gulp bower    
