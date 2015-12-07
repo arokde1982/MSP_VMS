@@ -1,4 +1,4 @@
-FROM PrideGlobal/MSP_VMS:latest
+FROM manishsangani/MSP_VMS:latest
 
 # Bundle app source
 
