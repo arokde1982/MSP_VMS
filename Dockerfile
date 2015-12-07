@@ -9,3 +9,4 @@ ADD . /src/msp_vms
 RUN cd /src/msp_vms; npm install
 
 ENTRYPOINT ["/src/msp_vms/boot.sh"]
+EXPOSE 3000
