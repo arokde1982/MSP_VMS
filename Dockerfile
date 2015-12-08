@@ -1,4 +1,4 @@
-FROM manishsangani/msp_vms:latest
+FROM manishsangani/msp_vms
 
 # Bundle app source
 
