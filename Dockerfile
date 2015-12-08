@@ -5,7 +5,7 @@ FROM manishsangani/msp_vms:latest
 RUN mkdir -p /src/msp_vms
 #ADD . /src/msp_vms
 
-ADD msp_vms /src/msp_vms
+ADD . /src/msp_vms
 #CMD ["/src/msp_vms"]
 
 # Install app dependencies
