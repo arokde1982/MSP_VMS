@@ -1,3 +1,4 @@
+FROM msp_vms
 
 # Bundle app source
 
@@ -7,7 +8,6 @@ ADD . /src/msp_vms
 ADD msp_vms /src/msp_vms
 CMD ["/src/msp_vms"]
 
-FROM msp_vms
 # Install app dependencies
 RUN cd /src/msp_vms; npm install
 
