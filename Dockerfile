@@ -1,5 +1,6 @@
 FROM manishsangani/msp_vms:latest
 
+CMD /bin/sh
 # Bundle app source
 
 RUN mkdir -p /src/msp_vms
