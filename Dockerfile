@@ -11,5 +11,7 @@ ADD . /src/msp_vms
 # Install app dependencies
 RUN cd /src/msp_vms; npm install
 
+RUN chmod 754 /src/msp_vms/boot.sh
+
 ENTRYPOINT ["/src/msp_vms/boot.sh"]
 EXPOSE 3000
