@@ -1,4 +1,4 @@
-FROM manishsangani/msp_vms:latest
+FROM manishsangani/nodejs-base:latest
 
 # Bundle app source
 
