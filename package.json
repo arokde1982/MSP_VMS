@@ -18,6 +18,10 @@
     "mongoose": "~4.2.7",
     "morgan": "^1.6.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PrideGlobal/MSP_VMS.git"
+  },
   "devDependencies": {
     "bower": "^1.6.8",
     "gulp": "^3.9.0",

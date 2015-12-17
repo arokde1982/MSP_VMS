@@ -22,8 +22,8 @@ app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
 app.use(morgan('dev'));
 //app.use(express.logger('dev')); 						// log every request to the console
-app.use(bodyParser()); 							// pull information from html in POST
-
+app.use(bodyParser.json()); 							// for parsing application/json
+app.use(bodyParser.urlencoded({extended:true})); //for parsing application/x-www-form-urlencoded
 app.use(methodOverride()); 						// simulate DELETE and PUT
 
 
@@ -43,6 +43,6 @@ require('./app/routes.js')(app);
 //set server port
 //app.listen(port);
 app.listen(process.env.PORT, process.env.IP);
-console.log('server is running on port: ' + port);
+console.log('server is running on port: ' + process.env.IP + ':' +  port);
 
 module.exports = app;
