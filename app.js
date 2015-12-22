@@ -1,12 +1,10 @@
-
-
 //set var for environment
-//
+
 var express = require('express');
 var app = express();
 var path = require('path');
 var port = process.env.PORT || 8080;
-var mongoose = require('mongoose'); 
+var mongoose = require('mongoose');
 var database = require('./config/database');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
@@ -18,19 +16,17 @@ mongoose.connect(database.url);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-
-app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
+app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
 app.use(morgan('dev'));
 //app.use(express.logger('dev')); 						// log every request to the console
-app.use(bodyParser.json()); 							// for parsing application/json
-app.use(bodyParser.urlencoded({extended:true})); //for parsing application/x-www-form-urlencoded
-app.use(methodOverride()); 						// simulate DELETE and PUT
-
-
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({
+    extended: true
+})); //for parsing application/x-www-form-urlencoded
+app.use(methodOverride()); // simulate DELETE and PUT
 
 //instruct express to serve up static assets
 //app.use(express.static('public'));
-
 
 //set routes
 require('./app/routes.js')(app);
@@ -43,6 +39,6 @@ require('./app/routes.js')(app);
 //set server port
 //app.listen(port);
 app.listen(process.env.PORT, process.env.IP);
-console.log('server is running on port: ' + process.env.IP + ':' +  port);
+console.log('server is running on port: ' + process.env.IP + ':' + port);
 
 module.exports = app;
