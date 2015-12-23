@@ -19,6 +19,7 @@ script:
 
 # npm install runs by default, but we need to specify global installs ourselves
 before_install:
+ - sudo apt-get install git-all
  - npm install -g gulp bower
 
 # node environment 
