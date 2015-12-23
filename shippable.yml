@@ -19,7 +19,6 @@ script:
 
 # npm install runs by default, but we need to specify global installs ourselves
 before_install:
- - sudo yum install git-all
  - npm install -g gulp bower
 
 # node environment 
@@ -35,4 +34,4 @@ notifications:
         on_failure: always
         
 after_success:
-    - git push git@heroku.com:mspvms-nodejs.git master
+ - git push git@heroku.com:mspvms-nodejs.git master
