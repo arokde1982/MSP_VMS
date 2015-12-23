@@ -12,7 +12,11 @@ branches:
 
 # Mongo binds to 127.0.0.1 by default
 services:
-  - mongodb    
+  - mongodb
+
+before_script:
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
 
 script:
     - gulp process-scripts
@@ -23,8 +27,10 @@ before_install:
 
 # node environment 
 env:
-    - NODE_ENV=dev    
-    - secure: bvIC6krSkw/yx0i/TwE/1IGiJg1S6b5Xn+oxYmh72qx3EsVE4ebo3u70m9yUk2guBQoHtGr4J4tS0+O3Ss4bSSyYn3uuBc3I1EvHXN8rgflNjZ38bsSDmuNQ5TwCt2/QuqKlhxejNT4iGAjvA4wQgcS1e4Lw9o5QYo5KyTufnKJcCnlXFK1dt0jqKn7vNAonZVJvfvfLhXBL/NQHrl4H8fMOt7zmn3w0ir3A5T3Nej0UquHC6GjyyXae3Jz70g9vhYl0lLV6sPlSWwCYxcukgFVD14A5LiqFTCIrcAYc9q3arKCvZP28+W9Kmn9lm6EPGNfUEhrD5DGZg25Gi66RIQ==
+    global:
+        - MONGOLAB_URI=mongodb://localhost/test
+        - NODE_ENV=dev
+        - secure: bvIC6krSkw/yx0i/TwE/1IGiJg1S6b5Xn+oxYmh72qx3EsVE4ebo3u70m9yUk2guBQoHtGr4J4tS0+O3Ss4bSSyYn3uuBc3I1EvHXN8rgflNjZ38bsSDmuNQ5TwCt2/QuqKlhxejNT4iGAjvA4wQgcS1e4Lw9o5QYo5KyTufnKJcCnlXFK1dt0jqKn7vNAonZVJvfvfLhXBL/NQHrl4H8fMOt7zmn3w0ir3A5T3Nej0UquHC6GjyyXae3Jz70g9vhYl0lLV6sPlSWwCYxcukgFVD14A5LiqFTCIrcAYc9q3arKCvZP28+W9Kmn9lm6EPGNfUEhrD5DGZg25Gi66RIQ==
     
 notifications:
     email:
