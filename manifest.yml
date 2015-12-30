@@ -1,0 +1,7 @@
+path: .
+instances: 1
+
+applications:
+    - name: mspvms
+    - memory: 256M
+
