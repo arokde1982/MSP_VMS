@@ -39,11 +39,11 @@ notifications:
         on_success: change
         on_failure: always
         
-after_success:
+
 #FOR deployment to HEROKU - git push git@heroku.com:mspvms-nodejs.git master
 
 #FOR Cloud Foundry below
-
+after_success:
    - provider: cloudfoundry
    - username: manish.sangani@prideglobal.com
    - password: NA0KmerOjioL4Qs0weRh8z0gF4tx7XkuyHEdsvaOoozbIu1TSjc+45UQxSQ7lBClUpC93a82hB/IUhj5cEtylGm6xdMRNEYkjJpvJYl3uPRpcugKkF2+hrPQCb4IbvcUHVzIayAiBtbu5ZFDwfiNnqrVXpQzZZNYrNaZs28mQfGRkoS0/aqjj+GyrY6LD0yEy0Xflv1BUKmuoVEgcs4bBcoFS3NAx/QrVroTC46ZQpTZN+ZaUz1SroVQX753z0zQ+rXOO0Ul/bau98MOmaPdd0EtM84RvuTjTqTlZckEE817cEQNXEzyjwKDcn/i+N8DDNbkQxTm8aaa81tWqNTxYg==
