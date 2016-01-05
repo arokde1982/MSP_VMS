@@ -1,0 +1,8 @@
+branch-defaults:
+  master:
+    environment: dev
+global:
+  application_name: mspvms-dev
+  default_region: us-east-1
+  profile: eb-cli
+  sc: git

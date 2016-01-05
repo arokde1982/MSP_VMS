@@ -17,31 +17,41 @@ services:
 before_script:
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
+    - mkdir -p ~/.aws
+    - echo '[profile eb-cli]' > ~/.aws/config
+    - echo "aws_access_key_id = $AWSAccessKeyId" >> ~/.aws/config
+    - echo "aws_secret_access_key = $AWSSecretKey" >> ~/.aws/config
 
 script:
+    - mkdir -p .elasticbeanstalk
+    - cp config.yml .elasticbeanstalk/
     - gulp process-scripts
 
 # npm install runs by default, but we need to specify global installs ourselves
 before_install:
- - npm install -g gulp bower
+    - npm install -g gulp bower
+    - SUDO=$(which sudo) && $SUDO pip install awsebcli
 
 # node environment 
 env:
     global:
+        - AWS_ACCESS_KEY_ID=AKIAI7SZYW5JWREBFF3A
+        - AWS_DEFAULT_REGION=us-east-1
         - MONGOLAB_URI=mongodb://localhost/test
         - NODE_ENV=dev
         - secure: bvIC6krSkw/yx0i/TwE/1IGiJg1S6b5Xn+oxYmh72qx3EsVE4ebo3u70m9yUk2guBQoHtGr4J4tS0+O3Ss4bSSyYn3uuBc3I1EvHXN8rgflNjZ38bsSDmuNQ5TwCt2/QuqKlhxejNT4iGAjvA4wQgcS1e4Lw9o5QYo5KyTufnKJcCnlXFK1dt0jqKn7vNAonZVJvfvfLhXBL/NQHrl4H8fMOt7zmn3w0ir3A5T3Nej0UquHC6GjyyXae3Jz70g9vhYl0lLV6sPlSWwCYxcukgFVD14A5LiqFTCIrcAYc9q3arKCvZP28+W9Kmn9lm6EPGNfUEhrD5DGZg25Gi66RIQ==
-    
+        - secure: C1CYofF4vacHQ9E2R44q78oRlNcsvMXL9ZeH7DkouWspXDbohs6A33akJrNTfTKkmiPWTf4AL9vZ3NU7w8oGmRKm4YAG/S0aoeRduzFz75AYiECHrdQ3KfjcSM3anAq1JgoSceseXeBbXdMxO1zdrasIA2CoXDhe0bK2hjmywOE/HGD1wOqRV9LA2Mq/CHi3UK3LAE0BhEbxGVZq7x5nQoiau9PrIaaCihZ3SK2bocJv9hpkyaoRZ78mj/TVSVYvBg+2zY/4SSDHu2evyydyrHNG6UVqdTv+TxexqJ3ZGXyznJby4nbG3WKtE+vBcs8jDcwnQEa7SnNvZj5g40GktQ==
+        - CD_APP_NAME=mspvms-dev
+
 notifications:
     email:
         recipients:
             - manish.sangani@prideglobal.com
         on_success: change
         on_failure: always
-        
 
 #FOR deployment to HEROKU
 
-#FOR Cloud Foundry below
 after_success:
-    - git push git@heroku.com:mspvms-nodejs.git master
+    - eb init && eb deploy
+#- git push git@heroku.com:mspvms-nodejs.git master
