@@ -17,26 +17,26 @@ services:
 before_script:
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
-    - mkdir -p ~/.aws
-    - echo '[profile eb-cli]' > ~/.aws/config
-    - echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" >> ~/.aws/config
-    - echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
+#    - mkdir -p ~/.aws
+#    - echo '[profile eb-cli]' > ~/.aws/config
+#    - echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" >> ~/.aws/config
+#    - echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
 
 script:
-    - mkdir -p .elasticbeanstalk
-    - cp config.yml .elasticbeanstalk/
+#   - mkdir -p .elasticbeanstalk
+#    - cp config.yml .elasticbeanstalk/
     - gulp process-scripts
 
 # npm install runs by default, but we need to specify global installs ourselves
 before_install:
     - npm install -g gulp bower
-    - SUDO=$(which sudo) && $SUDO pip install awsebcli
+#    - SUDO=$(which sudo) && $SUDO pip install awsebcli
 
 # node environment 
 env:
     global:
-        - AWS_ACCESS_KEY_ID=AKIAI7SZYW5JWREBFF3A
-        - AWS_DEFAULT_REGION=us-east-1
+ #       - AWS_ACCESS_KEY_ID=AKIAI7SZYW5JWREBFF3A
+#        - AWS_DEFAULT_REGION=us-east-1
         - MONGOLAB_URI=mongodb://localhost/test
         - NODE_ENV=dev
         - secure: bvIC6krSkw/yx0i/TwE/1IGiJg1S6b5Xn+oxYmh72qx3EsVE4ebo3u70m9yUk2guBQoHtGr4J4tS0+O3Ss4bSSyYn3uuBc3I1EvHXN8rgflNjZ38bsSDmuNQ5TwCt2/QuqKlhxejNT4iGAjvA4wQgcS1e4Lw9o5QYo5KyTufnKJcCnlXFK1dt0jqKn7vNAonZVJvfvfLhXBL/NQHrl4H8fMOt7zmn3w0ir3A5T3Nej0UquHC6GjyyXae3Jz70g9vhYl0lLV6sPlSWwCYxcukgFVD14A5LiqFTCIrcAYc9q3arKCvZP28+W9Kmn9lm6EPGNfUEhrD5DGZg25Gi66RIQ==
@@ -53,5 +53,5 @@ notifications:
 #FOR deployment to HEROKU
 
 after_success:
-    - eb init && eb deploy
+#    - eb init && eb deploy
 #- git push git@heroku.com:mspvms-nodejs.git master
