@@ -13,5 +13,5 @@ RUN cd /src/msp_vms; npm install
 
 RUN chmod 754 /src/msp_vms/boot.sh
 
-EXPOSE 8080
+EXPOSE 3000
 ENTRYPOINT ["/src/msp_vms/boot.sh"]
