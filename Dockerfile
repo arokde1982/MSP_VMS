@@ -1,4 +1,4 @@
-FROM manishsangani/nodejs-base:latest
+FROM manishsangani/master:80
 
 # Bundle app source
 
@@ -13,5 +13,5 @@ RUN cd /src/msp_vms; npm install
 
 RUN chmod 754 /src/msp_vms/boot.sh
 
-EXPOSE 3000
+EXPOSE 3001
 ENTRYPOINT ["/src/msp_vms/boot.sh"]

@@ -1,12 +1,12 @@
 {
     "AWSEBDockerrunVersion" : "1",
     "Image" : {
-        "Name": "manishsangani/msp_vms:master.43",
+        "Name": "manishsangani/msp_vms:master.80",
         "Update" : "true"
     },
     "Ports" : [
         {
-            "ContainerPort" : "3000"
+            "ContainerPort" : "3001"
         }
     ]
 }
