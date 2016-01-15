@@ -1,4 +1,4 @@
-FROM manishsangani/master:80
+FROM manishsangani/msp_vms:master.80
 
 # Bundle app source
 
